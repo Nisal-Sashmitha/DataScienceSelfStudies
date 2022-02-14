@@ -167,3 +167,24 @@ WHERE client_name LIKE '%LLC%'
 -- Find any branch suppliers who are in the label business
 SELECT * FROM branch_supplier
 WHERE supplier_name LIKE '% Label%';
+
+
+--Find list of employee and branch names
+SELECT first_name FROM employee
+UNION
+SELECT branch_name FROM branch;
+
+--Find list of employee, branch names and client_names
+SELECT first_name FROM employee
+UNION
+SELECT branch_name FROM branch
+UNION
+SELECT client_name FROM client;
+
+
+--Find list of all clients & branch supliers' names
+SELECT client_name, branch_id
+FROM client
+UNION
+SELECT supplier_name, branch_id
+FROM branch_supplier;
